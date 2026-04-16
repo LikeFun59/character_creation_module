@@ -3,7 +3,7 @@ from graphic_arts.start_game_banner import run_screensaver
 
 
 def attack(char_name, char_class):
-    """Calculate and return the attack result for the selected character class."""
+    """Return attack result."""
     if char_class == 'warrior':
         dmg = 5 + randint(3, 5)
         return (f'{char_name} нанёс урон противнику равный {dmg}')
@@ -16,7 +16,7 @@ def attack(char_name, char_class):
 
 
 def defence(char_name, char_class):
-    """Calculate and return the blocked damage for the selected character class."""
+    """Return defence result."""
     if char_class == 'warrior':
         block = 10 + randint(5, 10)
         return (f'{char_name} блокировал {block} урона')
@@ -29,7 +29,7 @@ def defence(char_name, char_class):
 
 
 def special(char_name, char_class):
-    """Return a text description of the class-specific special ability."""
+    """Return special ability result."""
     if char_class == 'warrior':
         return (f'{char_name} применил специальное умение '
                 '«Выносливость {80 + 25}»')
@@ -42,7 +42,7 @@ def special(char_name, char_class):
 
 
 def start_training(char_name, char_class):
-    """Run an interactive training loop and process battle commands."""
+    """Run character training."""
     if char_class == 'warrior':
         print(f'{char_name}, ты Воитель — отличный боец ближнего боя.')
     if char_class == 'mage':
@@ -67,13 +67,13 @@ def start_training(char_name, char_class):
 
 
 def choice_char_class():
-    """Ask the player to choose and confirm a character class."""
+    """Choose a character class."""
     approve_choice = None
     char_class = None
     while approve_choice != 'y':
         char_class = input(
             'Введи название персонажа, за которого хочешь играть: '
-            'Воитель — warrior, Маг — mage, Лекарь — healer: '
+            'Воитель — warrior, Маг — mage, Лекарь — healer: ',
         )
         if char_class == 'warrior':
             print('Воитель — дерзкий воин ближнего боя. '
@@ -86,7 +86,7 @@ def choice_char_class():
                   'Черпает силы из природы, веры и духов.')
         approve_choice = input(
             'Нажми (Y), чтобы подтвердить выбор, или любую другую '
-            'кнопку, чтобы выбрать другого персонажа '
+            'кнопку, чтобы выбрать другого персонажа ',
         ).lower()
     return char_class
 
